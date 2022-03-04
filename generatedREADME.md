@@ -1,23 +1,30 @@
 # TITLE
+
 ## License
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: Open Font-1.1](https://img.shields.io/badge/License-OFL_1.1-lightgreen.svg)](https://opensource.org/licenses/OFL-1.1)
+
 ## Table of Contents
 - [Description](#description)
 - [Installation Instructions](#intallation-instructions)
 - [Usage Information](#usage-information)
-
+- [Contribution Guidelines](#contribution-guidelines)
 - [Test Instructions](#test-instructions)
 
 ## Description 
-afd
+Description will go here.
+
 ## Installation Instructions
-dg
+Installation instructions will go here.
+
 ## Usage Information
-dfh
+Usage information will go here.
+
 ## Contribution Guidelines
-sgh
+Contribution Guidelines will go here.
+
 ## Test Instructions
-sdh
+Test instructions will go here.
+
 ## Questions
 - Link to my GitHub Profile: [GitHub Profile](https://www.github.com/patrickfham/)  
 - Feel free to email me directly:  [patrick.f.ham@gmail.com](mailto:patrick.f.ham@gmail.com)    

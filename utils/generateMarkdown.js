@@ -96,7 +96,7 @@ function renderLicenseSection(license) {
   if (license == "NONE" || license == null) {
     licenseSection = '';
   } else {
-    licenseSection = `## License\n[![${licenseName}](${licenseBadge})](${licenseLink})\n`;
+    licenseSection = `\n## License\n[![${licenseName}](${licenseBadge})](${licenseLink})\n`;
     return licenseSection;
   }
 }
@@ -132,7 +132,7 @@ function generateTOC(data) {
   if (data.contributionGuidelines == '' || data.contributionGuidelines == null) {
     contributionTOC = '';
   } else {
-    contributionSection = `- [Contribution Guidelines](#contribution-guidelines)`;
+    contributionTOC = `- [Contribution Guidelines](#contribution-guidelines)`;
   }
   
   if (data.testInstructions == '' || data.testInstructions == null) {
@@ -147,7 +147,7 @@ function generateTOC(data) {
     tocSection = '';
     return tocSection;
   } else {
-    tocSection = `## Table of Contents\n${descriptionTOC}\n${installationTOC}\n${usageTOC}\n${contributionTOC}\n${testTOC}\n`;
+    tocSection = `\n## Table of Contents\n${descriptionTOC}\n${installationTOC}\n${usageTOC}\n${contributionTOC}\n${testTOC}\n`;
     return tocSection;
   }
 }
@@ -203,31 +203,31 @@ function generateMarkdown(data) {
   if (data.projectDescription == '' || data.projectDescription == null) {
     descriptionSection = '';
   } else {
-    descriptionSection = `\n## Description \n${data.projectDescription}`;
+    descriptionSection = `\n## Description \n${data.projectDescription}\n`;
   }
   
   if (data.installationInstructions == '' || data.installationInstructions == null) {
     installationSection = '';
   } else {
-    installationSection = `\n## Installation Instructions\n${data.installationInstructions}`;
+    installationSection = `\n## Installation Instructions\n${data.installationInstructions}\n`;
   }
   
   if (data.usageInformation == '' || data.usageInformation == null) {
     usageSection = '';
   } else {
-    usageSection = `\n## Usage Information\n${data.usageInformation}`;
+    usageSection = `\n## Usage Information\n${data.usageInformation}\n`;
   }
 
   if (data.contributionGuidelines == '' || data.contributionGuidelines == null) {
     contributionSection = '';
   } else {
-    contributionSection = `\n## Contribution Guidelines\n${data.contributionGuidelines}`;
+    contributionSection = `\n## Contribution Guidelines\n${data.contributionGuidelines}\n`;
   }
   
   if (data.testInstructions == '' || data.testInstructions == null) {
     testSection = '';
   } else {
-    testSection = `\n## Test Instructions\n${data.testInstructions}`;
+    testSection = `\n## Test Instructions\n${data.testInstructions}\n`;
   }
 
   // ALL THE SECTIONS BUILT ABOVE INTO ONE RETURN
