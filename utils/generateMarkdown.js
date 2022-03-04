@@ -2,6 +2,7 @@ let licenseName = '';
 let licenseBadge = '';
 let licenseLink = '';
 let licenseSection = '';
+let tocSection = '';
 
 function renderLicenseSection(license) {
   switch (license) {
@@ -90,11 +91,96 @@ function renderLicenseSection(license) {
   }
 }
 
+function generateTOC(data) {
+  let descriptionTOC = '';
+  let installationTOC = '';
+  let usageTOC = '';
+  let contributionTOC = '';
+  let testTOC = '';
+  
+  if (data.projectDescription == '' || data.projectDescription == null) {
+    descriptionTOC = '';
+  } else {
+    descriptionTOC = `- [Description](#description)`;
+  }
+
+  if (data.installationInstructions == '' || data.installationInstructions == null) {
+    installationTOC = '';
+  } else {
+  installationTOC = '- [Installation Instructions](#intallation-instructions)';
+  }
+
+  if (data.usageInformation == '' || data.usageInformation == null) {
+    usageTOC = '';
+  } else {
+    usageTOC = `- [Usage Information](#usage-information)`;
+  }
+
+  if (data.contributionGuidelines == '' || data.contributionGuidelines == null) {
+    contributionTOC = '';
+  } else {
+    contributionSection = `- [Contribution Guidelines](#contribution-guidelines)`;
+  }
+  
+  if (data.testInstructions == '' || data.testInstructions == null) {
+    testTOC = '';
+  } else {
+    testTOC = `- [Test Instructions](#test-instructions)`;
+  }
+
+  if (descriptionTOC == '' && installationTOC == '' && usageTOC == '' && contributionTOC == '' && testTOC == '' && testTOC == '') {
+    tocSection = '';
+    return tocSection;
+  } else {
+    tocSection = `## Table of Contents\n${descriptionTOC}\n${installationTOC}\n${usageTOC}\n${contributionTOC}\n${testTOC}\n`;
+    return tocSection;
+  }
+}
+
 function generateMarkdown(data) {
+
   const license = data.license;
   renderLicenseSection(license);
+
+  generateTOC(data);
   
-  return `# ${data.projectTitle}\n${licenseSection}\n## Description\n${data.projectDescription}\n\n## Installation Instructions\n${data.installationInstructions}\n\n## Usage Information\n${data.usageInformation}\n\n## Contribution Guidelines\n${data.contributionGuidelines}\n\n## Test Instructions\n${data.testInstructions}\n`;
+  if (data.projectTitle == '' || data.projectTitle == null) {
+    titleSection = '';
+  } else {
+    titleSection = `# ${data.projectTitle}\n`;
+  }
+  
+  if (data.projectDescription == '' || data.projectDescription == null) {
+    descriptionSection = '';
+  } else {
+    descriptionSection = `\n## Description \n${data.projectDescription}`;
+  }
+  
+  if (data.installationInstructions == '' || data.installationInstructions == null) {
+    installationSection = '';
+  } else {
+    installationSection = `\n## Installation Instructions\n${data.installationInstructions}`;
+  }
+  
+  if (data.usageInformation == '' || data.usageInformation == null) {
+    usageSection = '';
+  } else {
+    usageSection = `\n## Usage Information\n${data.usageInformation}`;
+  }
+
+  if (data.contributionGuidelines == '' || data.contributionGuidelines == null) {
+    contributionSection = '';
+  } else {
+    contributionSection = `\n## Contribution Guidelines\n${data.contributionGuidelines}`;
+  }
+  
+  if (data.testInstructions == '' || data.testInstructions == null) {
+    testSection = '';
+  } else {
+    testSection = `\n## Test Instructions\n${data.testInstructions}`;
+  }
+
+  return `${titleSection}${licenseSection}${tocSection}${descriptionSection}${installationSection}${usageSection}${contributionSection}${testSection}`;
 }
 
 module.exports = generateMarkdown;
