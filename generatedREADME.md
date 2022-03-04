@@ -1,7 +1,7 @@
-# TITLE
+# TITLE goes here
 
 ## License
-[![License: Open Font-1.1](https://img.shields.io/badge/License-OFL_1.1-lightgreen.svg)](https://opensource.org/licenses/OFL-1.1)
+[![License: Artistic-2.0](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)
 
 ## Table of Contents
 - [Description](#description)
@@ -11,19 +11,19 @@
 - [Test Instructions](#test-instructions)
 
 ## Description 
-Description will go here.
+Description goes here.
 
 ## Installation Instructions
-Installation instructions will go here.
+Installation instructions go here.
 
 ## Usage Information
-Usage information will go here.
+Usage Information goes here.
 
 ## Contribution Guidelines
-Contribution Guidelines will go here.
+Contribution Guidelines go here.
 
 ## Test Instructions
-Test instructions will go here.
+Test Instructions go here.
 
 ## Questions
 - Link to my GitHub Profile: [GitHub Profile](https://www.github.com/patrickfham/)  
