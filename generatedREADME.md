@@ -1,7 +1,7 @@
 # TITLE goes here
 
 ## License
-[![License: Artistic-2.0](https://img.shields.io/badge/License-Perl-0298c3.svg)](https://opensource.org/licenses/Artistic-2.0)
+[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)
 
 ## Table of Contents
 - [Description](#description)
@@ -17,13 +17,13 @@ Description goes here.
 Installation instructions go here.
 
 ## Usage Information
-Usage Information goes here.
+Usage information goes here.
 
 ## Contribution Guidelines
-Contribution Guidelines go here.
+Contribution guidelines go here.
 
 ## Test Instructions
-Test Instructions go here.
+Test instructions go here.
 
 ## Questions
 - Link to my GitHub Profile: [GitHub Profile](https://www.github.com/patrickfham/)  
