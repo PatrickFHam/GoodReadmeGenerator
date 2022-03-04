@@ -1,3 +1,4 @@
+// ACCESSIBLE VARIABLES AMONG DIFFERENT FUNCTIONS
 let licenseName = '';
 let licenseBadge = '';
 let licenseLink = '';
@@ -9,6 +10,8 @@ let usernameSection = '';
 let emailSection = '';
 let questionsSection = '';
 
+// LIST OF LICENSES WITH ASSOCIATED BADGES AND LINKS
+// USED SWITCH/CASE (instead of if/else) TO KEEP IT CLEAN
 function renderLicenseSection(license) {
   switch (license) {
     case "NONE":
@@ -88,6 +91,8 @@ function renderLicenseSection(license) {
       break;
   }
 
+  // BUILDS THE SECTION OF THE README CALLED 'LICENSE'
+  // IF NO LICENSE IS PROVIDED, IT LEAVES THE ENTIRE SECTION BLANK
   if (license == "NONE" || license == null) {
     licenseSection = '';
   } else {
@@ -96,6 +101,7 @@ function renderLicenseSection(license) {
   }
 }
 
+// TABLE OF CONTENTS IS GENERATED WITH THIS FUNCTION
 function generateTOC(data) {
   let descriptionTOC = '';
   let installationTOC = '';
@@ -103,6 +109,8 @@ function generateTOC(data) {
   let contributionTOC = '';
   let testTOC = '';
   
+  // THE IFs ALLOW FOR THE USER TO NOT-PROVIDE ANYTHING
+  // THIS IS WHERE EACH OF THE CLICKABLE ENTRIES IS BUILT
   if (data.projectDescription == '' || data.projectDescription == null) {
     descriptionTOC = '';
   } else {
@@ -133,6 +141,8 @@ function generateTOC(data) {
     testTOC = `- [Test Instructions](#test-instructions)`;
   }
 
+  // THIS IS WHERE THE ENTIRE SECTION OF TABLE OF CONTENTS IS BUILT
+  // WON'T DISPLAY AN EMPTY SECTION
   if (descriptionTOC == '' && installationTOC == '' && usageTOC == '' && contributionTOC == '' && testTOC == '' && testTOC == '') {
     tocSection = '';
     return tocSection;
@@ -142,8 +152,11 @@ function generateTOC(data) {
   }
 }
 
+// THE QUESTIONS SECTION IS BUILT WITH THIS FUNCTION
 function generateQuestionsSection (data) {
   
+  // EACH OF THESE ALLOWS FOR THE USER TO SKIP
+  // THIS IS WHERE EACH OF THE GITHUB AND EMAIL ENTRIES ARE BUILT
   if (data.username == '' || data.username == null) {
     username = '';
     usernameSection = '';
@@ -159,6 +172,7 @@ function generateQuestionsSection (data) {
     emailSection = `\n- Feel free to email me directly:  [${email}](mailto:${email})  `;
   }
 
+  // SECTION WITH BOTH GITHUB AND EMAIL SECTIONS ARE BUILT, ALLOWS FOR EMPTY SECTION
   if (username == '' && email == '') {
     questionsSection = '';
     // return questionsSection;
@@ -167,28 +181,19 @@ function generateQuestionsSection (data) {
     // return questionsSection;
   }
 
-  console.log(username);
-  console.log(email);
-  console.log(usernameSection);
-  console.log(emailSection);
-
-  console.log(questionsSection);
-
   return questionsSection;
 }
 
+// FULL MARKDOWN FILE IS GENERATED WITH THIS FUNCTION, USES OTHER FUNCTION RETURNS ALSO
 function generateMarkdown(data) {
 
+  // CONSTANT BUILT TO PASS INTO THE FUNCTION
   const license = data.license;
   renderLicenseSection(license);
-
   generateTOC(data);
-
-
-  console.log("input username is: " + data.username);
-  console.log("input email is: " + data.email);
   generateQuestionsSection(data);
   
+  // THESE BUILD EACH OF THE SECTIONS, AND ALLOWS FOR EMPTY INPUT
   if (data.projectTitle == '' || data.projectTitle == null) {
     titleSection = '';
   } else {
@@ -225,7 +230,9 @@ function generateMarkdown(data) {
     testSection = `\n## Test Instructions\n${data.testInstructions}`;
   }
 
+  // ALL THE SECTIONS BUILT ABOVE INTO ONE RETURN
   return `${titleSection}${licenseSection}${tocSection}${descriptionSection}${installationSection}${usageSection}${contributionSection}${testSection}${questionsSection}`;
 }
 
+// ALLOWS THE INDEX.JS TO CALL THE generateMarkdown FUNCTION
 module.exports = generateMarkdown;

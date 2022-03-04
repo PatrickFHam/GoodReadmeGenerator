@@ -1,8 +1,9 @@
-// TODO: Include packages needed for this application
+// PACKAGES NEEDED
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
+// LIST OF QUESTIONS TO BE USED IN 'INQUIRER'
 const questions = [
   {
     type: 'input',
@@ -66,13 +67,13 @@ const questions = [
   }
 ];
 
+// FUNCTION THAT RECEIVES THE RETURN FROM generateMarkdown FUNCTION AND WRITES IT TO THE A NEW FILE
 function writeToFile(fileName, data) {
-  console.log(data.license);
   license = data.license;
-  console.log(license);
   fs.writeFileSync(fileName, generateMarkdown(data));
 }
 
+// INITIATES THE INQUIRER, PASSES THE NEW FILENAME AND RESPONSE INTO NEXT FUNCTION
 function init() {
   inquirer
     .prompt(questions)
