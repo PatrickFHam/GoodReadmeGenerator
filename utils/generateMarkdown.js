@@ -3,6 +3,11 @@ let licenseBadge = '';
 let licenseLink = '';
 let licenseSection = '';
 let tocSection = '';
+let username = '';
+let email = '';
+let usernameSection = '';
+let emailSection = '';
+let questionsSection = '';
 
 function renderLicenseSection(license) {
   switch (license) {
@@ -137,12 +142,52 @@ function generateTOC(data) {
   }
 }
 
+function generateQuestionsSection (data) {
+  
+  if (data.username == '' || data.username == null) {
+    username = '';
+    usernameSection = '';
+  } else {
+    username = data.username;
+    usernameSection = `\n- Link to my GitHub Profile: [GitHub Profile](https://www.github.com/${username}/)  `;
+  }
+
+  if (data.email == '' || data.email == null) {
+    email = '';
+  } else {
+    email = data.email;
+    emailSection = `\n- Feel free to email me directly:  [${email}](mailto:${email})  `;
+  }
+
+  if (username == '' && email == '') {
+    questionsSection = '';
+    // return questionsSection;
+  } else {
+    questionsSection = `\n## Questions${usernameSection}${emailSection}  `;
+    // return questionsSection;
+  }
+
+  console.log(username);
+  console.log(email);
+  console.log(usernameSection);
+  console.log(emailSection);
+
+  console.log(questionsSection);
+
+  return questionsSection;
+}
+
 function generateMarkdown(data) {
 
   const license = data.license;
   renderLicenseSection(license);
 
   generateTOC(data);
+
+
+  console.log("input username is: " + data.username);
+  console.log("input email is: " + data.email);
+  generateQuestionsSection(data);
   
   if (data.projectTitle == '' || data.projectTitle == null) {
     titleSection = '';
@@ -180,7 +225,7 @@ function generateMarkdown(data) {
     testSection = `\n## Test Instructions\n${data.testInstructions}`;
   }
 
-  return `${titleSection}${licenseSection}${tocSection}${descriptionSection}${installationSection}${usageSection}${contributionSection}${testSection}`;
+  return `${titleSection}${licenseSection}${tocSection}${descriptionSection}${installationSection}${usageSection}${contributionSection}${testSection}${questionsSection}`;
 }
 
 module.exports = generateMarkdown;
